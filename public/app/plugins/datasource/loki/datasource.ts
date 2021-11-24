@@ -8,12 +8,12 @@ import Prism from 'prismjs';
 import {
   AnnotationEvent,
   AnnotationQueryRequest,
+  CoreApp,
   DataFrame,
   DataFrameView,
   DataQueryError,
   DataQueryRequest,
   DataQueryResponse,
-  DataSourceApi,
   DataSourceInstanceSettings,
   DataSourceWithLogsContextSupport,
   DataSourceWithLogsVolumeSupport,
@@ -33,7 +33,7 @@ import {
   ScopedVars,
   TimeRange,
 } from '@grafana/data';
-import { BackendSrvRequest, FetchError, getBackendSrv } from '@grafana/runtime';
+import { BackendSrvRequest, FetchError, getBackendSrv, DataSourceWithBackend } from '@grafana/runtime';
 import { getTemplateSrv, TemplateSrv } from 'app/features/templating/template_srv';
 import { addLabelToQuery } from './add_label_to_query';
 import { getTimeSrv, TimeSrv } from 'app/features/dashboard/services/TimeSrv';
@@ -86,7 +86,7 @@ const DEFAULT_QUERY_PARAMS: Partial<LokiRangeQueryRequest> = {
 };
 
 export class LokiDatasource
-  extends DataSourceApi<LokiQuery, LokiOptions>
+  extends DataSourceWithBackend<LokiQuery, LokiOptions>
   implements
     DataSourceWithLogsContextSupport,
     DataSourceWithLogsVolumeSupport<LokiQuery>,
@@ -162,6 +162,25 @@ export class LokiDatasource
       ...options.scopedVars,
       ...this.getRangeScopedVars(options.range),
     };
+
+    // if all these are true, run query through backend:
+    // - feature-flag is enabled
+    // - we are in explore-mode
+    // - for every query it is true that:
+    //   - query is range query
+    //   - and query is metric query
+    //   - and query is not a log-volume-query (those need a custom http header)
+    const shouldRunBackendQuery =
+      config.featureToggles.lokiBackendMode &&
+      options.app === CoreApp.Explore &&
+      options.targets.every(
+        (query) => query.queryType === LokiQueryType.Range && isMetricsQuery(query.expr) && !query.volumeQuery
+      );
+
+    if (shouldRunBackendQuery) {
+      return super.query(options);
+    }
+
     const filteredTargets = options.targets
       .filter((target) => target.expr && !target.hide)
       .map((target) => {
@@ -752,6 +771,25 @@ export class LokiDatasource
     } else {
       return addLabelToQuery(queryExpr, key, value, operator, true);
     }
+  }
+
+  // Used when running queries through backend
+  filterQuery(query: LokiQuery): boolean {
+    if (query.hide || query.expr === '') {
+      return false;
+    }
+    return true;
+  }
+
+  // Used when running queries through backend
+  applyTemplateVariables(target: LokiQuery, scopedVars: ScopedVars): Record<string, any> {
+    // We want to interpolate these variables on backend
+    const { __interval, __interval_ms, ...rest } = scopedVars;
+
+    return {
+      ...target,
+      expr: this.templateSrv.replace(target.expr, rest, this.interpolateQueryExpr),
+    };
   }
 }
 
