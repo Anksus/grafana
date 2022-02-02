@@ -205,7 +205,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-dashboards-suite
 - commands:
   - apt-get install -y netcat
@@ -214,7 +214,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-smoke-tests-suite
 - commands:
   - apt-get install -y netcat
@@ -223,7 +223,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-panels-suite
 - commands:
   - apt-get install -y netcat
@@ -232,7 +232,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-various-suite
 - commands:
   - apt-get update
@@ -638,7 +638,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-dashboards-suite
 - commands:
   - apt-get install -y netcat
@@ -647,7 +647,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-smoke-tests-suite
 - commands:
   - apt-get install -y netcat
@@ -656,7 +656,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-panels-suite
 - commands:
   - apt-get install -y netcat
@@ -665,7 +665,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-various-suite
 - commands:
   - apt-get update
@@ -1248,7 +1248,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-dashboards-suite
 - commands:
   - apt-get install -y netcat
@@ -1257,7 +1257,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-smoke-tests-suite
 - commands:
   - apt-get install -y netcat
@@ -1266,7 +1266,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-panels-suite
 - commands:
   - apt-get install -y netcat
@@ -1275,7 +1275,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-various-suite
 - commands:
   - apt-get update
@@ -1854,7 +1854,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-dashboards-suite
 - commands:
   - apt-get install -y netcat
@@ -1863,7 +1863,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-smoke-tests-suite
 - commands:
   - apt-get install -y netcat
@@ -1872,7 +1872,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-panels-suite
 - commands:
   - apt-get install -y netcat
@@ -1881,7 +1881,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-various-suite
 - commands:
   - apt-get update
@@ -3009,7 +3009,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-dashboards-suite
 - commands:
   - apt-get install -y netcat
@@ -3018,7 +3018,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-smoke-tests-suite
 - commands:
   - apt-get install -y netcat
@@ -3027,7 +3027,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-panels-suite
 - commands:
   - apt-get install -y netcat
@@ -3036,7 +3036,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-various-suite
 - commands:
   - apt-get update
@@ -3543,7 +3543,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-dashboards-suite
 - commands:
   - apt-get install -y netcat
@@ -3552,7 +3552,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-smoke-tests-suite
 - commands:
   - apt-get install -y netcat
@@ -3561,7 +3561,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-panels-suite
 - commands:
   - apt-get install -y netcat
@@ -3570,7 +3570,7 @@ steps:
   - grafana-server
   environment:
     HOST: grafana-server
-  image: cypress/included:9.3.1
+  image: us.gcr.io/kubernetes-dev/test/cypress/included:9.3.1
   name: end-to-end-tests-various-suite
 - commands:
   - apt-get update
@@ -4191,6 +4191,6 @@ kind: secret
 name: gcp_upload_artifacts_key
 ---
 kind: signature
-hmac: 4d1a5696bf1e510fb51a021c07e240c50cb913724ce08ed52cce037ff02dd8de
+hmac: 5d79b4a501d274ef9d71c9c3152aae7e71a7ad306517d028b25f3efe45624b74
 
 ...
